@@ -10,13 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './coreModule/interceptor/token.interceptor';
 import { errorInterceptor } from './coreModule/interceptor/error.interceptor';
+import { ProductComponent } from './featureModule/components/product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

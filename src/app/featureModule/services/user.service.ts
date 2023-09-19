@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { loginInterface } from "src/app/coreModule/interfaces/login.interface";
 import { tokenResponce } from "src/app/coreModule/interfaces/loginRespons.interface";
+import {  productInterface } from "src/app/coreModule/interfaces/product.interface";
 
 @Injectable({
     providedIn:'root'
@@ -16,11 +17,11 @@ export class userServise{
     userLogin(data:loginInterface):Observable<tokenResponce>{
       return this.http.post<tokenResponce>('http://localhost:3000/login',data)
     }
-    setToken(accessToke:string,refreshToken:string){
-        localStorage.setItem('accessToken',accessToke)
+    setToken(accessToken:string,refreshToken:string){
+        localStorage.setItem('accessToken',accessToken)
         localStorage.setItem('refreshToken',refreshToken)
     }
-    fetchProduct():Observable<any>{
-      return this.http.get('http://localhost:3000/products')
+    fetchProduct(page:number,pageSize:number):Observable<productInterface[]>{
+      return this.http.get<productInterface[]>(`http://localhost:3000/fetchproducts?page=${page}&pageSize=${pageSize}`)
     }
 }

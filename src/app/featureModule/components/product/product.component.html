@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="body">
+        <div class="group">
+            <div class="grouping">
+                <div class="title">
+                    product Table
+                </div>
+                <div class="header">
+                    <div class="head">
+                        Name
+                    </div>
+                    <div class="head">
+                        Price
+                    </div>
+                    <div class="head">
+                        Status
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="data">
+
+
+                <div *ngFor="let item of products"
+                    class="items">
+                    <div class="content">
+                        <div class="first">{{item.name}}</div>
+                        <div class="second">{{item.brand}}</div>
+                    </div>
+                    <div class="content">{{item.price}}</div>
+                    <div class="content">{{item.status}}</div>
+
+                </div>
+                <div class="pagination">
+                    <div (click)="prevPage()" class="right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 1024 1024"
+                            class="icon" version="1.1">
+                            <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z"
+                                fill="#000000" />
+                        </svg>
+                    </div>
+                    <div (click)="nextPage()" class="left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 1024 1024"
+                            class="icon" version="1.1">
+                            <path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"
+                                fill="#000000" />
+                        </svg>
+                    </div>
+                </div>
+
+
+                <ng-template #err404>
+                    <p>Data not found.!</p>
+                </ng-template>
+
+            </div>
+        </div>
+
+    </div>
+</div>

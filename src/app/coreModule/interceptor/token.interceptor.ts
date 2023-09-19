@@ -13,11 +13,11 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('accessToken')
 
     req = req.clone({
         setHeaders:{
-            Authorization: token || ''
+            Authorization:  token || ''
         }
     })
     return next.handle(req)

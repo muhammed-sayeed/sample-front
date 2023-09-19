@@ -6,13 +6,7 @@ import { userServise } from '../../services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-     constructor(private userService: userServise){}
+export class HomeComponent  {
 
-    ngOnInit(): void {
-      this.userService.fetchProduct().subscribe((data)=>{
-        console.log('Products',data);
-        
-      })
-    }
+ 
 }
