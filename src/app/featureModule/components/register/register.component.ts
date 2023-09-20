@@ -52,10 +52,10 @@ export class RegisterComponent {
 
   submit() {
    this.formValid = true
-   this.loading=true
+  
    if(this.form.valid){
     let data = this.form.value
-     
+    this.loading=true
         this.userService.userRegister(data).subscribe((data)=>{
           if(data.success){
             this.loading = false

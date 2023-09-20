@@ -104,11 +104,12 @@ body {
     font-size: medium;
     font-weight: bold;
     border-radius: 5px;
+    position: relative;
 }
-.submit :disabled{
+.submit:disabled{
     cursor: not-allowed;
     background-color: #cccccc;
-  color: #666666;
+   color: #666666;
 }
 .submitdiv p{
     margin-top: 7px;
@@ -129,6 +130,26 @@ body {
 .genderdiv label{
     margin-right: 5px;
 }
+
+.loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px; /* Adjust the size of your loading icon */
+    height: 20px;
+    border: 4px solid #ffffff;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Add a spinning animation */
+    display: inline-block;
+    visibility: hidden; /* Initially hidden */
+  }
+  
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
   
 
 @media(max-width: 768px){

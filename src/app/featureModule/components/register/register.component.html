@@ -122,7 +122,7 @@
         <div class="submitdiv">
             <button class="submit" [disabled]="formValid && form.invalid"  >
                 <span *ngIf="!loading">Submit</span>
-                <span *ngIf="loading" ><div class="loader" ></div></span>
+                <div *ngIf="loading" class="loading-icon"></div>
             </button>
             <p>Already member- <a routerLink="/login" >Login</a></p>
         </div>
