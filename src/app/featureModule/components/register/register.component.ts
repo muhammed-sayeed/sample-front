@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
+  loading:boolean = false
+  errorMessage!:string;
+
   constructor(
     private userService: userServise,
     private router: Router
@@ -49,17 +52,25 @@ export class RegisterComponent {
 
   submit() {
    this.formValid = true
+   this.loading=true
    if(this.form.valid){
     let data = this.form.value
-      this.userService.userRegister(data).subscribe((data)=>{
-        console.log('onRegister',data);
-        console.log('daa',data);
-        if(data.success){
-          const tokens = data.tokens
-          this.userService.setToken(tokens.access,tokens.refresh)
-          this.router.navigate([''])
-        }
-      })
+     
+        this.userService.userRegister(data).subscribe((data)=>{
+          if(data.success){
+            this.loading = false
+            const tokens = data.tokens
+            this.userService.setToken(tokens.access,tokens.refresh)
+            this.router.navigate([''])
+          }else{
+            this.loading =false
+            this.errorMessage = data.message
+            setTimeout(()=>{
+             this.errorMessage=''
+            },3000)
+          }
+        })
+     
    }
     }
 }

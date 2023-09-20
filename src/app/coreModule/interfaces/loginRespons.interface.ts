@@ -1,6 +1,7 @@
 export interface tokenResponce{
    success:boolean
    tokens: tokens
+   message:string
 }
 
 export interface tokens{

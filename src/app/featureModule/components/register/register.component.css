@@ -5,6 +5,7 @@ body {
   }
   
 .container{
+    position: relative;
     width: 100%;
     height: 100vh;
     background-color: #D6E689;
@@ -13,6 +14,18 @@ body {
    margin: 0;
    padding: 0;
 }
+.error{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 5px;
+    background-color: #E6E5E5; /* Background color for the error message */
+    color: #F94C35; /* Text color */
+    padding: 5px 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: smaller;
+    z-index: 100; /* Ensure it appears above other content */
+  }
 .form{
     width: 768px;
     height: 100%;
@@ -92,6 +105,11 @@ body {
     font-weight: bold;
     border-radius: 5px;
 }
+.submit :disabled{
+    cursor: not-allowed;
+    background-color: #cccccc;
+  color: #666666;
+}
 .submitdiv p{
     margin-top: 7px;
     color: #808080;
@@ -104,6 +122,14 @@ body {
     font-size: smaller;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.genderdiv{
+    display: flex;
+    justify-content: space-around;
+}
+.genderdiv label{
+    margin-right: 5px;
+}
+  
 
 @media(max-width: 768px){
     .form{

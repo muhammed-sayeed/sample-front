@@ -1,1 +1,13 @@
-<button routerLink="product">Product</button>
+<div class="container">
+    <nav class="navbar">
+  <div class="group">
+    <button *ngIf="!showButton" class="submit" routerLink="login">Login</button>
+    <button *ngIf="!showButton" class="submit" routerLink="register">Register</button>
+    <button *ngIf="showButton" class="log-out" (click)="logout()" >Log-out</button>
+  </div>
+    </nav>
+    <div class="body">
+        <button *ngIf="showButton" class="submit" routerLink="product">Product</button>
+    </div>
+</div>
+

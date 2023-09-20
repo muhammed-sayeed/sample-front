@@ -1,4 +1,7 @@
 <div class="container">
+    <div *ngIf="errorMessage" class="error">
+        {{errorMessage}}
+    </div>
     <form action="" class="form" (submit)="submit()" [formGroup]="form">
         <div class="header">SIGN-UP</div>
         <div class="covering">
@@ -65,15 +68,15 @@
                     <div class="finpG">
                         <label for="">Gender</label>
                         <div class="inpdivG">
-                            <div>
+                            <div class="genderdiv">
                                 <label for="">Male</label>
                                 <input formControlName="gender" value="male" type="radio" name="" id="" />
                             </div>
-                            <div>
+                            <div class="genderdiv">
                                 <label for="">Female</label>
                                 <input formControlName="gender" value="female" type="radio" name="" id="" />
                             </div>
-                            <div>
+                            <div class="genderdiv">
                                 <label for="">Others</label>
                                 <input formControlName="gender" value="others" type="radio" name="" id="" />
                             </div>
@@ -117,8 +120,11 @@
         </div>
 
         <div class="submitdiv">
-            <button class="submit" [disabled]="formValid && form.invalid"  >Submit</button>
-            <p>Already member- <a href="login">Login</a></p>
+            <button class="submit" [disabled]="formValid && form.invalid"  >
+                <span *ngIf="!loading">Submit</span>
+                <span *ngIf="loading" ><div class="loader" ></div></span>
+            </button>
+            <p>Already member- <a routerLink="/login" >Login</a></p>
         </div>
     </form>
 </div>

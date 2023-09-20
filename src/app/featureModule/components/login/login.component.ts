@@ -12,6 +12,9 @@ import { tokenResponce } from 'src/app/coreModule/interfaces/loginRespons.interf
 })
 export class LoginComponent {
 
+  loading:boolean = false
+  errorMessage!:string;
+
   constructor(
     private userService:userServise,
     private router: Router
@@ -29,18 +32,23 @@ export class LoginComponent {
   })
   submit(){
   this.submitTried = true
+  this.loading=true
   if(this.loginForm.valid){
   const data: loginInterface = {
     email: this.loginForm.value.email,
     password: this.loginForm.value.password,
 };
 this.userService.userLogin(data).subscribe((data:tokenResponce)=>{
-  console.log('onlogin',data);
-  
   if(data.success){
     const tokens = data.tokens
     this.userService.setToken(tokens.access,tokens.refresh)
     this.router.navigate([''])
+  }else{
+    this.loading =false
+    this.errorMessage = data.message
+    setTimeout(()=>{
+     this.errorMessage=''
+    },3000)
   }
 })
     

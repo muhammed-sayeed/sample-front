@@ -1,4 +1,7 @@
 <div class="container">
+    <div *ngIf="errorMessage" class="error">
+        {{errorMessage}}
+    </div>
     <form class="form" action="" (submit)="submit()" [formGroup]="loginForm">
         <div class="header">
             LOGIN
@@ -35,7 +38,7 @@
             </div>
             <div class="submit">
                 <button class="submittbutton" [disabled]="submitTried && loginForm.invalid">Submit</button>
-                <p>Create an account? <a href="register">Register</a></p>
+                <p>Create an account? <a routerLink="/register" >Register</a></p>
             </div>
 
         </div>
